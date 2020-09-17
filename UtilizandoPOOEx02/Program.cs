@@ -4,10 +4,6 @@ namespace UtilizandoPOOEx02
 {
     public class Program
     {
-        // colocar para perguntar se quer digitar outra pessoa
-        // validar as informações se são válidas
-        // ver se apaga as informações da tela
-        // pensar se digita os dados na mesma linha
         public static void Main(string[] args)
         {
             Console.WriteLine("Utilizando POO: Exercício 2");
@@ -29,6 +25,9 @@ namespace UtilizandoPOOEx02
             pessoa.SetAltura(Convert.ToDouble(altura));
 
             pessoa.ImprimirDados();
+
+            Console.WriteLine("Aperte qualquer tecla para encerrar a aplicação.");
+            Console.ReadLine();
         }
     }
 }
