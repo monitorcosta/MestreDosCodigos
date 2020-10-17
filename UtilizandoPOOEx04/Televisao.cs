@@ -42,7 +42,7 @@ namespace UtilizandoPOOEx04
 
         public void ExibirCanalAtual()
         {
-            Console.WriteLine($"Canal: {_canal}");
+            _notificador.Notificar($"Canal: {_canal}");
         }
 
         public void ExibirVolume()
