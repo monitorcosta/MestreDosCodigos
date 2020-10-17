@@ -4,9 +4,9 @@ namespace TrabalhandoNoConsoleEx05
 {
     public class CalculadorDeBhaskara
     {
-        private int _coeficienteA;
-        private int _coeficienteB;
-        private int _coeficienteC;
+        private readonly int _coeficienteA;
+        private readonly int _coeficienteB;
+        private readonly int _coeficienteC;
 
         public CalculadorDeBhaskara(int coeficienteA, int coeficienteB, int coeficienteC)
         {

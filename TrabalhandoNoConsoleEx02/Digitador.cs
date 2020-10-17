@@ -22,6 +22,7 @@ namespace TrabalhandoNoConsoleEx02
             while (true)
             {
                 Console.Write("Digite o Nome do Funcionário:");
+                
                 string nome = Console.ReadLine();
                 if (!string.IsNullOrWhiteSpace(nome))
                     break;
@@ -37,15 +38,19 @@ namespace TrabalhandoNoConsoleEx02
             while (true)
             {
                 Console.Write("Digite o Salário do Funcionário:");
+               
                 string numeroString = Console.ReadLine();
+                
                 bool numeroValido = int.TryParse(numeroString, out salario);
                 if (!numeroValido)
                 {
                     Console.WriteLine("Digite um salário inteiro e válido!");
                     continue;
                 }
+                
                 break;
             }
+            
             return salario;
         }
 

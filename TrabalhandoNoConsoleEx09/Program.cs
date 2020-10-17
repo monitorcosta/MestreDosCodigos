@@ -12,11 +12,14 @@ namespace TrabalhandoNoConsoleEx09
 
             Console.WriteLine("Digite números inteiros.");
             Console.WriteLine("Para encerrar a digitação digite algo que não seja número.");
+
             List<int> numeros = new List<int>();
             while (true)
             {
                 Console.Write("Digite um número: ");
+
                 string numeroString = Console.ReadLine();
+                
                 bool numeroValido = int.TryParse(numeroString, out var numero);
                 if (!numeroValido)
                 {
@@ -32,6 +35,7 @@ namespace TrabalhandoNoConsoleEx09
             }
 
             Console.WriteLine("Imprimir todos os números.");
+            
             foreach (var numero in numeros)
             {
                 Console.WriteLine(numero);
@@ -41,6 +45,7 @@ namespace TrabalhandoNoConsoleEx09
             Console.ReadLine();
 
             Console.WriteLine("Imprimir todos os números em ordem crescente.");
+           
             foreach (var numero in numeros.OrderBy(o => o))
             {
                 Console.WriteLine(numero);
@@ -50,6 +55,7 @@ namespace TrabalhandoNoConsoleEx09
             Console.ReadLine();
 
             Console.WriteLine("Imprimir todos os números em ordem decrescente.");
+            
             foreach (var numero in numeros.OrderByDescending(o => o))
             {
                 Console.WriteLine(numero);
@@ -70,9 +76,10 @@ namespace TrabalhandoNoConsoleEx09
             Console.WriteLine("Aperte qualquer tecla para continuar.");
             Console.ReadLine();
 
-            Random random = new Random();
+            var random = new Random();
             var novoNumeroParaInicioDaLista = random.Next(numeros.OrderBy(o => o).LastOrDefault());
             numeros.Insert(0, novoNumeroParaInicioDaLista);
+            
             Console.WriteLine("Inserido no início da lista: criado {0} - na lista {1}", novoNumeroParaInicioDaLista, numeros.FirstOrDefault());
 
             Console.WriteLine("Aperte qualquer tecla para continuar.");
@@ -80,6 +87,7 @@ namespace TrabalhandoNoConsoleEx09
 
             var novoNumeroParaFimDaLista = random.Next(numeros.OrderBy(o => o).LastOrDefault());
             numeros.Insert(numeros.Count, novoNumeroParaFimDaLista);
+            
             Console.WriteLine("Inserido no fim da lista: criado {0} - na lista {1}", novoNumeroParaFimDaLista, numeros[numeros.Count - 1]);
 
             Console.WriteLine("Aperte qualquer tecla para continuar.");
@@ -107,6 +115,7 @@ namespace TrabalhandoNoConsoleEx09
             Console.ReadLine();
 
             Console.WriteLine("Converter em array");
+           
             var arrayDeNumeros = numeros.ToArray();
             Console.WriteLine("Tipo lista: {0}", arrayDeNumeros.GetType());
 

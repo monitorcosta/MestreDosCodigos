@@ -9,9 +9,11 @@ namespace TrabalhandoNoConsoleEx04
         public void Imprimir(List<Aluno> alunos)
         {
             List<Aluno> alunosParaImpressao = alunos.Where(a => a.PossuiAlgumaMediaSuficiente(7)).ToList();
+            
             foreach (var aluno in alunosParaImpressao)
             {
                 Console.WriteLine("Nome do aluno: {0}", aluno.Nome);
+               
                 foreach (var nota in aluno.Notas)
                 {
                     Console.WriteLine("Nota: {0}", nota);

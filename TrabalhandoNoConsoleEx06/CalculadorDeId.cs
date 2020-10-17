@@ -2,7 +2,8 @@
 {
     public class CalculadorDeId
     {
-        private int _idPadrao;
+        private readonly int _idPadrao;
+        
         public CalculadorDeId(int id)
         {
             _idPadrao = id;

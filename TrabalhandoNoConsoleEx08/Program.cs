@@ -17,12 +17,15 @@ namespace TrabalhandoNoConsoleEx08
             while (true)
             {
                 Console.Write("Digite um número: ");
+                
                 string numeroString = Console.ReadLine();
+                
                 bool numeroValido = int.TryParse(numeroString, out var numero);
                 if (!numeroValido)
                 {
                     break;
                 }
+                
                 numeros.Add(numero);
             }
 
@@ -36,6 +39,7 @@ namespace TrabalhandoNoConsoleEx08
             Console.ReadLine();
 
             Console.WriteLine("Imprimir todos os números em ordem crescente.");
+            
             foreach (var numero in numeros.OrderBy(o => o))
             {
                 Console.WriteLine(numero);
@@ -45,6 +49,7 @@ namespace TrabalhandoNoConsoleEx08
             Console.ReadLine();
 
             Console.WriteLine("Imprimir todos os números em ordem decrescente.");
+            
             foreach (var numero in numeros.OrderByDescending(o => o))
             {
                 Console.WriteLine(numero);

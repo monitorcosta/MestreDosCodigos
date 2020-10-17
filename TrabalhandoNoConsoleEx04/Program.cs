@@ -14,12 +14,15 @@ namespace TrabalhandoNoConsoleEx04
             Console.WriteLine();
 
             Console.WriteLine("Digite uma letra para encerrar a digitação da nota.");
-            Console.WriteLine("Digite notas inteiras de 0 a 10.");
+            Console.WriteLine("Digite notas inteiras de 0 a 10.");            
             Console.WriteLine();
+            
             var alunos = new List<Aluno>();
+            
             for (int i = 0; i < quantidade; i++)
             {
                 Console.Write("Digite o Nome do Aluno: ");
+                
                 string nomeDoAluno = Console.ReadLine();
 
                 var aluno = new Aluno(nomeDoAluno);
@@ -48,7 +51,9 @@ namespace TrabalhandoNoConsoleEx04
                     
                     aluno.AdicionarNota(nota);                    
                 }
+
                 alunos.Add(aluno);
+
                 Console.WriteLine();
             }
 
@@ -64,12 +69,15 @@ namespace TrabalhandoNoConsoleEx04
             while (true)
             {
                 Console.Write("Escolha a quantidade de alunos para lançar nota: ");
+
                 string quantidadeDigitada = Console.ReadLine();
+                
                 bool numeroValido = int.TryParse(quantidadeDigitada, out quantidadeDeAlunos);
                 if (numeroValido)
                 {
                     break;
                 }
+                
                 Console.WriteLine("Digite um número inteiro e válido!");
             }
 
