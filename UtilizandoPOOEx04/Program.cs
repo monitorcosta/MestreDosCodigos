@@ -19,6 +19,9 @@ namespace UtilizandoPOOEx04
             while (true)
             {
                 var consoleInfoKey = Console.ReadKey();
+
+                Console.Write("\n");
+
                 string tecla = consoleInfoKey.KeyChar.ToString().ToUpper();
                 controleRemoto.Controlar(tecla);
                 

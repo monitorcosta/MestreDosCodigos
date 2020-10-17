@@ -28,6 +28,12 @@ namespace TrabalhandoNoConsoleEx04
                 {
                     Console.Write("Digite a nota do aluno: ");
                     string notaString = Console.ReadLine();
+
+                    if (string.IsNullOrWhiteSpace(notaString))
+                    {
+                        continue;
+                    }
+
                     bool notaValida = int.TryParse(notaString, out int nota);
                     if (!notaValida)
                     {

@@ -11,6 +11,7 @@ namespace TrabalhandoNoConsoleEx01
 
             int valorA = DigitarNumero("A");
             int valorB = DigitarNumero("B");
+
             Console.WriteLine("Valor A: {0} - {1}", valorA, ValidarTipoNumero(valorA));
             Console.WriteLine("Valor B: {0} - {1}", valorB, ValidarTipoNumero(valorB));
 
@@ -42,6 +43,7 @@ namespace TrabalhandoNoConsoleEx01
             }
 
             Console.WriteLine("Aperte qualquer tecla para encerrar a aplicação.");
+            
             Console.ReadLine();
         }
 
@@ -53,10 +55,13 @@ namespace TrabalhandoNoConsoleEx01
         private static int DigitarNumero(string nomeValor)
         {
             int numero;
+
             while (true)
             {
                 Console.Write("Informe o valor {0}: ", nomeValor);
+
                 string numeroString = Console.ReadLine();
+
                 bool numeroValido = int.TryParse(numeroString, out numero);
                 if (!numeroValido)
                 {
@@ -65,6 +70,7 @@ namespace TrabalhandoNoConsoleEx01
                 }
                 break;
             }
+
             return numero;
         }
 
