@@ -17,12 +17,13 @@ namespace TrabalhandoNoConsoleEx05
             int coeficienteC = DigitarNumero("c");
 
             var calculadorDeBaskara = new CalculadorDeBhaskara(coeficienteA, coeficienteB, coeficienteC);
+
             if (!calculadorDeBaskara.DeltaNegativo())
             {
                 double raiz1 = calculadorDeBaskara.CarlcularValorRaiz1();
-                double raiz2 = calculadorDeBaskara.CarlcularValorRaiz2();
-
                 Console.WriteLine("Raiz 1: {0}", raiz1);
+
+                double raiz2 = calculadorDeBaskara.CarlcularValorRaiz2();
                 Console.WriteLine("Raiz 2: {0}", raiz2);
             }
             else
@@ -31,6 +32,7 @@ namespace TrabalhandoNoConsoleEx05
             }
 
             Console.Write("Aperte qualquer tecla para encerrar a aplicação.");
+
             Console.ReadLine();
         }
 
@@ -38,16 +40,20 @@ namespace TrabalhandoNoConsoleEx05
         {
             bool numeroValido = false;
             int valorDoCoeficiente = 0;
+
             while (!numeroValido)
             {
                 Console.Write("Digite o coeficiente '{0}' da equação: ", nomeCoeficiente);
+
                 string valorAString = Console.ReadLine();
+
                 numeroValido = int.TryParse(valorAString, out valorDoCoeficiente);
                 if (!numeroValido)
                 {
                     Console.WriteLine("Dígito inválido.");
                 }
             }
+
             return valorDoCoeficiente;
         }
     }

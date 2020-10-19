@@ -4,6 +4,8 @@ namespace UtilizandoPOOEx04
 {
     public class Televisao
     {
+        private readonly INotificador _notificador;
+        
         private int _canal;
         private int _volume;
 
@@ -35,23 +37,23 @@ namespace UtilizandoPOOEx04
         {
             _volume = 1;
             _canal = 1;
+            _notificador = new Notificador();
         }
 
         public void ExibirCanalAtual()
         {
-            Console.Write("\nCanal: {0}", _canal);
+            _notificador.Notificar($"Canal: {_canal}");
         }
 
         public void ExibirVolume()
         {
-            Console.Write("\nVolume: {0}", Volume);
+            _notificador.Notificar($"Volume: {_volume}");
         }
 
         public void ExibirDadosAtuais()
         {
             ExibirCanalAtual();
             ExibirVolume();
-            Console.WriteLine();
         }
     }
 }

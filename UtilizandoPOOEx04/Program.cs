@@ -8,6 +8,7 @@ namespace UtilizandoPOOEx04
         {
             var televisao = new Televisao();
             var controleRemoto = new ControleRemoto(televisao);
+           
             Console.WriteLine("+ Volume -");
             Console.WriteLine("< Canal >");
             Console.WriteLine("Aperte C e informe o canal desejado.");
@@ -19,6 +20,9 @@ namespace UtilizandoPOOEx04
             while (true)
             {
                 var consoleInfoKey = Console.ReadKey();
+
+                Console.Write("\n");
+
                 string tecla = consoleInfoKey.KeyChar.ToString().ToUpper();
                 controleRemoto.Controlar(tecla);
                 

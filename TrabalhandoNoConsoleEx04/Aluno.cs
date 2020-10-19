@@ -20,6 +20,11 @@ namespace TrabalhandoNoConsoleEx04
                 Notas.Add(nota);
         }
 
+        public bool PossuiAlgumaMediaSuficiente(int nota)
+        {
+            return Notas.Any(n => n > nota);
+        }
+
         public int Media()
         {
             if (Notas.Count.Equals(0))

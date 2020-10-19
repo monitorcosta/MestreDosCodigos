@@ -6,7 +6,8 @@ namespace TrabalhandoNoConsoleEx03
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Trabalhando no Console: Exercício 3");
+            Console.WriteLine("Trabalhando no Console: Exercício 3"); 
+
             var contador = 1;
             while (contador <= 100)
             {
@@ -16,7 +17,9 @@ namespace TrabalhandoNoConsoleEx03
                 }
                 contador++;
             }
+
             Console.WriteLine("Aperte uma tecla para encerrar a aplicação!");
+
             Console.ReadLine();
         }
     }

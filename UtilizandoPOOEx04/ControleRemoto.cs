@@ -4,7 +4,7 @@ namespace UtilizandoPOOEx04
 {
     public class ControleRemoto
     {
-        private Televisao _televisao;
+        private readonly Televisao _televisao;
 
         public void Controlar(string tecla)
         {

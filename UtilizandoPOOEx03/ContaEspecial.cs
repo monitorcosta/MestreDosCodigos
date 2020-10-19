@@ -1,10 +1,9 @@
-﻿using System;
-
-namespace UtilizandoPOOEx03
+﻿namespace UtilizandoPOOEx03
 {
     public class ContaEspecial : ContaBancaria, IImprimivel
     {
-        private double _limiteDeCredito = 2000;
+        private readonly double _limiteDeCredito = 2000;
+
         public override void Depositar(double valorDoDeposito)
         {
             _saldo += valorDoDeposito;
@@ -12,7 +11,9 @@ namespace UtilizandoPOOEx03
 
         public override void Sacar(double valorDoSaque)
         {
-            if (_saldo - valorDoSaque <= _limiteDeCredito + _saldo)
+            var saldoDisponivel = _limiteDeCredito + _saldo;
+
+            if (ValidarSaque(saldoDisponivel, valorDoSaque))
             {
                 _saldo -= valorDoSaque;
             }
@@ -20,10 +21,11 @@ namespace UtilizandoPOOEx03
 
         public void MostrarDados()
         {
-            Console.WriteLine("Consta Especial");
-            Console.WriteLine("Número: {0}", _numeroDaConta);
-            Console.WriteLine("Saldo: {0}", _saldo);
-            Console.WriteLine("Limite de Crédito: {0}", _limiteDeCredito);
+            _notificador.AdicionarTitulo("Conta Especial");
+            _notificador.AdicionarMensagem($"Número {_numeroDaConta}");
+            _notificador.AdicionarMensagem($"Saldo: {_saldo}");
+            _notificador.AdicionarMensagem($"Limite de Crédito: {_limiteDeCredito}");
+            _notificador.Notificar();
         }
     }
 }

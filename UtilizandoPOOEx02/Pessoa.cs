@@ -4,45 +4,52 @@ namespace UtilizandoPOOEx02
 {
     public class Pessoa
     {
+        private readonly INotificador _notificador;
+
         private string _nome;
         private DateTime _dataDeNascimento;
         private double _altura;
 
-        public void SetNome(string nome)
+        public Pessoa()
+        {
+            _notificador = new Notificador();
+        }
+
+        public void InformarNome(string nome)
         {
             _nome = nome;
         }
 
-        public string GetNome()
+        public string ObterNome()
         {
             return _nome;
         }
 
-        public void SetDataDeNascimento(DateTime dataDeNascimento)
+        public void InformarDataDeNascimento(DateTime dataDeNascimento)
         {
             _dataDeNascimento = dataDeNascimento;
         }
 
-        public DateTime GetDataDeNascimento()
+        public DateTime ObterDataDeNascimento()
         {
             return _dataDeNascimento;
         }
 
-        public void SetAltura(double altura)
+        public void InformarAltura(double altura)
         {
             _altura = altura;
         }
 
-        public double GetAltura()
+        public double ObterAltura()
         {
             return _altura;
         }
 
         public string CalcularIdade()
         {
-            DateTime dataAtual = DateTime.Now;
+            var dataAtual = DateTime.Now;
             int anos = new DateTime(DateTime.Now.Subtract(_dataDeNascimento).Ticks).Year - 1;
-            DateTime anosTranscorridos = _dataDeNascimento.AddYears(anos);
+            var anosTranscorridos = _dataDeNascimento.AddYears(anos);
             int meses = 0;
             for (int i = 1; i <= 12; i++)
             {
@@ -64,11 +71,12 @@ namespace UtilizandoPOOEx02
 
         public void ImprimirDados()
         {
-            Console.WriteLine("Dados da Pessoa");
-            Console.WriteLine("Nome: {0}", _nome);
-            Console.WriteLine("Altura: {0}", _altura);
-            Console.WriteLine("Data de Nascimento: {0}", _dataDeNascimento.ToShortDateString());
-            Console.WriteLine("Idade: {0}", CalcularIdade());
+            _notificador.AdicionarTitulo("Dados da Pessoa");            
+            _notificador.AdicionarMensagem($"Nome: {_nome}");
+            _notificador.AdicionarMensagem($"Altura: {_altura}");
+            _notificador.AdicionarMensagem($"Data de Nascimento: {_dataDeNascimento.ToShortDateString()}");
+            _notificador.AdicionarMensagem($"Idade: {CalcularIdade()}");
+            _notificador.Notificar();
         }
     }
 }

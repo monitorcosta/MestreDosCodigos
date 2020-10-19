@@ -7,7 +7,9 @@ namespace TrabalhandoNoConsoleEx02
         public static void Main(string[] args)
         {
             Console.WriteLine("Trabalhando no Console: Exercício 2");
+            
             DigitarManeiraDeTestar(out string maneiraDeTestar);
+            
             IDigitador digitador = CriarDigitador(maneiraDeTestar);
 
             int quantidadeDeFuncionarios = DigitarQuantidadeDeFuncionarios();
@@ -27,7 +29,9 @@ namespace TrabalhandoNoConsoleEx02
                 Console.WriteLine("Escolha a maneira de executar:");
                 Console.WriteLine("F - For");
                 Console.WriteLine("W - While");
+                
                 maneiraDeTestar = Console.ReadLine();
+                
                 if (ValidarManeiraDeTestar(maneiraDeTestar))
                     break;
 
@@ -41,12 +45,15 @@ namespace TrabalhandoNoConsoleEx02
             while (true)
             {
                 Console.Write("Escolha a quantidade de funcionários para cadastrar: ");
+                
                 string quantidadeDigitada = Console.ReadLine();
+                
                 bool numeroValido = int.TryParse(quantidadeDigitada, out quantidadeDeFuncionarios);
                 if (numeroValido)
                 {
                     break;
                 }
+                
                 Console.WriteLine("Digite um número inteiro e válido!");
             }
 

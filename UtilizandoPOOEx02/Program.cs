@@ -20,9 +20,9 @@ namespace UtilizandoPOOEx02
             string nascimento = Console.ReadLine();
 
             var pessoa = new Pessoa();
-            pessoa.SetNome(nome);
-            pessoa.SetDataDeNascimento(Convert.ToDateTime(nascimento));
-            pessoa.SetAltura(Convert.ToDouble(altura));
+            pessoa.InformarNome(nome);
+            pessoa.InformarDataDeNascimento(Convert.ToDateTime(nascimento));
+            pessoa.InformarAltura(Convert.ToDouble(altura));
 
             pessoa.ImprimirDados();
 

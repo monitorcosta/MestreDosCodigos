@@ -2,8 +2,8 @@
 {
     public class Calculadora
     {
-        private int _valorA;
-        private int _valorB;
+        private readonly int _valorA;
+        private readonly int _valorB;
 
         public Calculadora(int valorA, int valorB)
         {

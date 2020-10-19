@@ -1,10 +1,8 @@
-﻿using System;
-
-namespace UtilizandoPOOEx03
+﻿namespace UtilizandoPOOEx03
 {
     public class ContaCorrente : ContaBancaria, IImprimivel
     {
-        private double _taxaDeOperacao = 2.5;
+        private readonly double _taxaDeOperacao = 2.5;
 
         public override void Depositar(double valorDoDeposito)
         {
@@ -13,18 +11,21 @@ namespace UtilizandoPOOEx03
 
         public override void Sacar(double valorDoSaque)
         {
-            var novoSaldo = _saldo - (valorDoSaque + _taxaDeOperacao);
-
-            if (novoSaldo >= 0)
-                _saldo = novoSaldo;
+            var valorTotalDaSaida = valorDoSaque + _taxaDeOperacao;
+           
+            if (ValidarSaque(_saldo, valorTotalDaSaida))
+            {
+                _saldo -= valorTotalDaSaida; 
+            }            
         }
 
         public void MostrarDados()
         {
-            Console.WriteLine("Consta Corrente");
-            Console.WriteLine("Número: {0}", _numeroDaConta);
-            Console.WriteLine("Saldo: {0}", _saldo);
-            Console.WriteLine("Taxa de operação: {0}", _taxaDeOperacao);
+            _notificador.AdicionarTitulo("Conta Corrente");
+            _notificador.AdicionarMensagem($"Número: {_numeroDaConta}");
+            _notificador.AdicionarMensagem($"Saldo: {_saldo}");
+            _notificador.AdicionarMensagem($"Taxa de operação: {_taxaDeOperacao}");
+            _notificador.Notificar();
         }
     }
 }
